@@ -49,17 +49,15 @@ data/dataset/
 
 ## Running the Notebooks
 
-### 1. Training
+Trained model weights and metrics are included in `artifacts/`, so you can skip straight to the analysis notebook. Only run training if you want all checkpoints or want to experiment with different configurations.
+
+### 1. Training (optional)
 
 ```bash
 jupyter notebook notebooks/01_train_comparison.ipynb
 ```
 
-**What it does:**
-- Trains YOLO11-L and RT-DETR-L on 6 dataset sizes (50, 100, 200, 500, 1500, 3000)
-- Saves model weights and metrics to `artifacts/{model}_{size}/`
-
-If you want live dashboards, set `USE_WANDB = True` in the notebook.
+Trains YOLO11-L and RT-DETR-L on 6 dataset sizes (50, 100, 200, 500, 1500, 3000) and saves weights to `artifacts/`.
 
 ### 2. Analysis
 
@@ -67,11 +65,7 @@ If you want live dashboards, set `USE_WANDB = True` in the notebook.
 jupyter notebook notebooks/02_analyze_results.ipynb
 ```
 
-**What it does:**
-- Loads trained models from `artifacts/`
-- Evaluates each on the test set
-- Generates comparison plots (convergence curves, data efficiency)
-- Saves results to `results/` folder
+Loads trained models from `artifacts/`, evaluates on the test set, and generates comparison plots.
 
 ## Project Structure
 
